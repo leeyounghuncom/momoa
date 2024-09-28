@@ -27,6 +27,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js?var=2"></script>
 <script>
+    fetch('https://localhost:8000/api/v1/some-endpoint/', {
+  method: 'GET',
+  credentials: 'include',  // 쿠키를 포함하여 요청
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+
     console.log(document.cookie);  // 일반 쿠키 확인 (HTTP-Only는 출력되지 않음)
 </script>
 </body>
